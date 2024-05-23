@@ -4,7 +4,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignInPage from "./components/SignInPage";
 import Registration from "./components/Registration";
 import Body from "./components/Body";
-
+import SellerDashboard from "./components/SellerDashboard";
+import BuyerDashboard from "./components/BuyerDashboard";
 
 
 const appRouter = createBrowserRouter([
@@ -20,7 +21,14 @@ const appRouter = createBrowserRouter([
                 path: "signin",
                 element: <SignInPage />,
             },
-
+            {
+                path: "seller_dashboard",
+                element: <SellerDashboard />,
+            },
+            {
+                path: "buyer_dashboard",
+                element: <BuyerDashboard />,
+            },
         ],
     },
 ]);
