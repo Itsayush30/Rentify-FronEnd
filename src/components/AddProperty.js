@@ -14,6 +14,8 @@ const CreateProperty = () => {
     city: '',
   });
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -22,12 +24,14 @@ const CreateProperty = () => {
     e.preventDefault();
     try {
         const token = localStorage.getItem('token'); // Retrieve token from local storage
-        const response = await axios.post('http://localhost:3030/api/v1/createproperty', formData, {
+        const response = await axios.post('https://rentify-backend-azaz.onrender.com/api/v1/createproperty', formData, {
           headers: {
             'x-access-token': token // Include token in headers
           }
         });
       console.log('Property created:', response.data);
+      setSuccessMessage('Property added'); 
+
     } catch (error) {
       console.error('Error:', error);
     }
@@ -56,6 +60,7 @@ const CreateProperty = () => {
           Submit
         </button>
       </form>
+      {successMessage && <p className="text-green-600 mb-4">{successMessage}</p>}
     </div>
   );
 };

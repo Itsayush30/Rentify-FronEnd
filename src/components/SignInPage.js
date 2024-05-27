@@ -32,7 +32,7 @@ function SignInPage() {
                 password: formData.password,
             };
 
-            const loginResponse = await axios.post('http://localhost:3030/api/v1/login', loginData);
+            const loginResponse = await axios.post('https://rentify-backend-azaz.onrender.com/api/v1/login', loginData);
             const { data } = loginResponse.data;
 
             localStorage.setItem('token', data);

@@ -25,7 +25,7 @@ function RegistrationPage() {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:3030/api/v1/user', formData);
+      const response = await axios.post('https://rentify-backend-azaz.onrender.com/api/v1/user', formData);
       navigate("/signin");
     } catch (error) {
       console.error('Error:', error);
